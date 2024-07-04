@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TicTacToe</title>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+        <script src="{{ url_for('static', filename='socket.io.js') }}"></script>
+        <script src="{{ url_for('static', filename='jquery.js') }}"></script>
+        <script src="{{ url_for('static', filename='game.js') }}"></script>
+        
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    </head>
+    <body>
+        <button class="fixed-button"></button>
+        <div id="about">
+            <h4 id="turns"></h4>
+            <h2 id="youare"></h2>
+        </div>
+
+        <div class="gamebody">
+
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p></p>
+                    <div id="bbtns">
+                        <button id="playagain">Play Again</button>
+                        <button id="goback">Go Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="btns">
+                <button index="00" id="btn1" class="btn {{ uid }}"></button>
+                <button index="01" id="btn2" class="btn {{ uid }}"></button>
+                <button index="02" id="btn3" class="btn {{ uid }}"></button>
+                <button index="10" id="btn4" class="btn {{ uid }}"></button>
+                <button index="11" id="btn5" class="btn {{ uid }}"></button>
+                <button index="12" id="btn6" class="btn {{ uid }}"></button>
+                <button index="20" id="btn7" class="btn {{ uid }}"></button>
+                <button index="21" id="btn8" class="btn {{ uid }}"></button>
+                <button index="22" id="btn9" class="btn {{ uid }}"></button>
+            </div>
+            <div id="info">
+                <h1 id="you">You: </h1>
+                <h1 id="opp">Opp: </h1>
+            </div>
+        </div>
+    </body>
+    <script>
+        const username = '{{ username }}'
+        const session_id = '{{ session_id }}'
+        const ids = '{{ uid }}'
+        let computer = {{ computer | tojson }};
+        
+        // alert(computer)
+        // alert(typeof(computer))
+    </script>
+</html>

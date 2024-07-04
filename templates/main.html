@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EGame</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <!--<script src="{{ url_for('static', filename='jquery.js') }}"></script>
+        <script src="{{ url_for('static', filename='socket.io.js') }}"></script>-->
+        <!--<script type="text/javascript" src="../static/scripts/noded.js"></script>
+        <script type="text/javascript" src="../static/scripts/node.js"></script>-->
+        <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='chat.css') }}">
+        
+    </head>
+    <body>
+        <div class="sidebar">
+            <ul>
+                <!-- <button class="settings" id="butimag"><h4 id="tx">Catagories</h4></button> -->
+                <div id="cata"><h4 class="cata">Catagories</h4></div>
+                <button class="anno" name="anno" id="butimag"><h4 id="tx">Multi-Player</h4></button>
+                <button class="users" name="personal" id="butimag"><h4 id="tx">Single-Player</h4></button>
+                <button class="groups" name="group" id="butimag"><h4 id="tx">Challenges</h4></button>
+                <button class="channels" name="channel" id="butimag"><h4 id="tx">Setting</h4></button>
+                <button class="challenge" name="challeng" id="butimag"><h4 id="tx">About</h4></button>
+            </ul>
+        </div>
+
+
+        <div class="convoact">
+            <div id="lab" name="group" class="group">
+                <label class="chat">Pick A Game</label>
+            </div>
+			<div class="gamelist">
+				<button class="gamebtn bt" id="bsize"></button>
+                <button class="checker bt">Coming Soon</button>
+			</div>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>VS</p>
+                    <div id="bbtns">
+                        <button id="human">Human</button>
+                        <button id="computer">Computer</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+    <script>
+        const username = '{{ username }}'
+        const session_id = '{{ session_id }}'
+    </script>
+</html>

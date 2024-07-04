@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+        <!--<script src="{{ url_for('static', filename='jquery.js') }}"></script>
+        <script src="{{ url_for('static', filename='socket.io.js') }}"></script>-->
+        
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    </head>
+    <body>
+        <form id="play" action="/game">
+            <input id="username" name="username" placeholder="Enter_Name">
+            <input id="session_id" name="session_id" placeholder="Enter_Session_Id">
+            <button class="game" type="submit">Play</button>
+        </form>
+    </body>
+</html>
