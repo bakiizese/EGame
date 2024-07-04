@@ -1,3 +1,5 @@
+#!/usr/bin/python
+''' handling the XO game logic'''
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, join_room
 from uuid import uuid4
@@ -28,10 +30,12 @@ all_moves = {}
 
 @app.route('/')
 def home():
+    '''home route'''
     return render_template('index.html')
 
 @app.route('/game')
 def game():
+    ''' XO game template '''
     global computer
 
     uid = str(uuid4())
@@ -45,11 +49,11 @@ def game():
 count = 0
 @socketio.on('join_room')
 def handle_join_room(data):
+    '''handle if new player joined'''
     global count
     global fullsession
     global players
     global computer
-    # print(computer)
     username = data['username']
     session_id = data['session_id']
     uid = data['ids']
@@ -90,24 +94,19 @@ def handle_join_room(data):
             'turn': False,
             'move': [],
             'attr': '',
-            #'uid': uid
         }
         players['player' + str(count + 1)] = player
         playes[session_id] = players
-        # num_session = {}
-        # num_session.setdefault(session_id, []).append(session_id)
-        # with open('pl.json', 'a') as file:
-        #     json.dump(num_session, file, indent=4)
 
     if len(playes[session_id]) == 2:
         players = {}
         count = 0
-        # fullsession.append(players['player2']['session_id'])
         socketio.emit('start', {'player': playes}, room=session_id)
         
 
 @socketio.on('picked')
 def handle_picked(data):
+    ''' handle movement of player '''
     session_id = data['session_id']
     if computer:
         username = data['player'][session_id]['player1']['username']
@@ -154,6 +153,7 @@ def handle_picked(data):
 
 
 def CheckWinner(player, data, session_id):
+    ''' check for winner '''
     global playerss
     global all_moves
 
@@ -163,9 +163,6 @@ def CheckWinner(player, data, session_id):
     rows = []
     diagR = []
     diagL = []
-    print(playerss)
-    print(all_moves)
-    print(board)
     if len(playerss[session_id][player]) >= 3:
         for i in playerss[session_id][player]:
             cols.append(i[1])

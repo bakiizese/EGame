@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, join_room
 from uuid import uuid4

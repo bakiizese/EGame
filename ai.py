@@ -1,3 +1,5 @@
+#!/usr/bin/python
+''' handle playing vs computer '''
 import random
 
 def analyze_and_move(board, player, opponent):
@@ -56,6 +58,7 @@ btns = {
     }
 
 def Caller(board, pl, op):
+    '''call the main method'''
     bt = analyze_and_move(board, pl, op)
     my_st = ''.join(map(str, bt))
     return (btns[my_st], my_st)

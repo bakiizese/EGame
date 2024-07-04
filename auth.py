@@ -1,3 +1,5 @@
+#!/usr/bin/python
+''' authentcation '''
 from flask import Flask, url_for, redirect, request,  render_template
 from flask_socketio import SocketIO
 from db import Chatdbs
@@ -8,12 +10,9 @@ import json
 
 app = Flask(__name__)
 app.secret_key = "my secret key"
-#socketio = SocketIO(app)
 login_manager = LoginManager()
 login_manager.login_view = 'login'
 login_manager.init_app(app)
-
-
 
 session = 'session'
 count = 1
@@ -28,10 +27,12 @@ except Exception:
 
 @login_manager.user_loader
 def load_user(username):
+    ''' load user '''
     return Chatdbs.get_user(username)
 
 @app.route('/')
 def home():
+    '''home route'''
     return render_template('login.html')
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -41,9 +42,6 @@ def login():
     global session
     global num_session
 
-
-    # if current_user.is_authenticated:
-    #     return redirect(url_for('main'))
     message = ''
     
     if request.method == 'POST':
@@ -53,7 +51,6 @@ def login():
 
         user = Chatdbs.get_user(username)
         if user and user.check_password(password_input):
-            # login_user(user)
             sh = f'session{count}'
             try:
                 num_session[sh]
@@ -68,9 +65,7 @@ def login():
 
             with open('pl.json', 'w') as file:
                 json.dump(num_session, file, indent=4)
-                    
-            # print(session_id)
-            # print(num_session)
+  
             return render_template('main.html', username=username, session_id=session_id)
         else:
             message = "failed to login"
@@ -78,6 +73,7 @@ def login():
 
 @app.route('/main')
 def main():
+    '''main template'''
     return render_template('main.html')
 
 @app.route('/signup')
@@ -101,3 +97,4 @@ def signup():
 
 if __name__ == '__main__':
     app.run(port=5001, debug=1)
+    

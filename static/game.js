@@ -5,7 +5,6 @@ $(document).ready(() => {
     let dataPlayer = {}
     let gamewon = false
 
-    // alert(computer)
     socket.on('connect', () => {
         socket.emit('join_room', {
             username: username,
@@ -20,8 +19,6 @@ $(document).ready(() => {
 
     })
     socket.on('joined_single', (data) => {
-        //console.log(data['player']['res'])
-        // console.log(data)
         const youare = data['player']['res']
         if (youare === 'O'){ 
             $(`.${ids}`).addClass('disabled')
@@ -29,7 +26,6 @@ $(document).ready(() => {
         $('#youare').text(`You Play As ${youare}`)
     })
     socket.on('start', (data) => {
-        // console.log(data)
         const oppName = data.player[session_id]['player1']['username']
         let opp = ''
         if (oppName === username){
@@ -45,10 +41,6 @@ $(document).ready(() => {
     $('.btn').on('click', function () {
         const attrs = $(this).attr('id')
         const mv = $(this).attr('index')
-        // console.log(mv)
-        // const ids = ids
-        // $('.btn').addClass('disabled')
-        // console.log(dataPlayer)
 
         socket.emit('picked', {
             player: dataPlayer['player'],
@@ -57,17 +49,13 @@ $(document).ready(() => {
             mv: mv,
             session_id: session_id
         })
-        // exchange(dataPlayer)
         
-        
-        // $(`#${attrs}`).prop('disabled', true)
     })
     
     socket.on('picked_change', (data) => {
         const attrs = data['attr']
         const cpmove = data['cpmove']
         if (computer){
-            // alert(attrs)
             $(`#${attrs}`).text('X')
             $('.btn').addClass('disabled')
             if (cpmove){
@@ -94,8 +82,6 @@ $(document).ready(() => {
 
     var modal = $("#myModal");
 
-    // modal.css("display", "block");
-    // $("#myModal p").text('Its a Draw')
     
     var span = $(".close");
     socket.on('winner', (data) => {
@@ -142,7 +128,6 @@ $(document).ready(() => {
     })
 
     function changeTurn(data){
-        // console.log(data)
         let ids = data['ids']
         let dt = data['player'][session_id]['player1']['uid']
         let dt2 = data['player'][session_id]['player2']['uid']
@@ -150,30 +135,24 @@ $(document).ready(() => {
         dt = '.' + dt
         dt2 = '.' + dt2
         ids = '.' + ids
-        //$(`${ids}`).addClass('disabled')
         if (gamewon){
         }else if(ids === dt){
-            //alert('in')
             $(`${dt2}`).removeClass('disabled')
             $(`${dt}`).addClass('disabled')
         }
         else{
-            //alert('out')
             $(`${dt}`).removeClass('disabled')
             $(`${dt2}`).addClass('disabled')
         }
     }
 
     function exchange(data) {
-        // console.log(data)
         const turn = data['player'][session_id]['player1']
         const attrs = data['attr']
         if (turn['turn']){
-            // console.log(turn['turn'])
             $('#turns').text(`it is ${turn['res']}'s turn`)
             $(`#${attrs}`).text('O')
             
-            // $('.btn').addClass('disabled')
         }else{
             const t = data['player'][session_id]['player2']['res']
             $('#turns').text(`it is ${t}'s turn`)

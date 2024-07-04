@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+''' user managment '''
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship, sessionmaker, declarative_base
 import sqlalchemy
