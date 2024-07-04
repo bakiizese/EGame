@@ -1,0 +1,121 @@
+.btn {
+    background-color: #4caf5080;;
+    background-image: url('./images/wood.jpeg');
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 87px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-repeat: repeat;
+    background-size: 395%;
+    background-blend-mode: hard-light;
+}
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+#btns{
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    
+}
+body {
+    background-color: #4caf5085;
+    background-image: url('./images/back.avif');
+    background-blend-mode: overlay;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+}
+
+
+
+.fixed-button {
+    background-image: url('./images/setting.png');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+
+    width: 55px;
+    height: 50px;
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    z-index: 999; /* Ensures it stays above other content */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding around text */
+    border: none; /* No border */
+    cursor: pointer; /* Cursor style */
+}
+
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+#about #turns {
+    margin-bottom: 15px;
+    font-size: xx-large;
+    margin-top: 15px;
+}
+#about #youare {
+    margin-left: -69px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    height: 200px;
+}
+
+.modal-content p {
+    font-size: 45px;
+    text-align: center;
+    margin-top: 27px;
+}
+
+.modal-content #bbtns {
+    display: grid;
+    height: 67px;
+    grid-gap: 2px;
+    margin-top: -22px;
+}
+
+.close {
+	color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -18px;
+    margin-right: -12px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

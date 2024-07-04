@@ -1,0 +1,421 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+}
+.sidebar {
+    width: 240px;
+    height: 100%;
+    background-color: #19162d;
+    background-image: url('./images/background.jpg');
+    background-blend-mode: color-dodge;
+}
+.sidebar ul {
+	display: inline-grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.sidebar li {
+    border: 1px solid black;
+    padding: 30px;
+    margin: 2px;
+    border-radius: 50%;
+}
+
+.sidebar ul button {
+	width: 20px;
+	
+}
+.search{
+    width: 240px;
+    background-color: #3e3d47;
+    position: relative;
+}
+.searchbar {
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px;
+    margin-top: 10px;
+    flex: 1;
+    width: 187px;
+    height: 8px;
+}
+
+
+.convolist {
+    
+    margin: 10px;
+    margin-top: 62px;
+    margin-left: 0px;
+    width: 220px;
+    height: 100%;
+
+}
+.convolist ul {
+    list-style: none;
+    float: left;
+    margin: 2px;
+    padding: 0;
+    margin-left: 0px;
+    width: 210px;
+    height: 64px;
+}
+.convolist ul li label {
+    border: 1px solid black;
+    border-radius: 50%;
+    float: left;
+    padding: 30px;
+    margin-bottom: 2px;
+   
+}
+.convolist li {
+    
+    height: 100%;
+}
+.convolist ul li h1 {
+    font-size: 15px;
+    float: left;
+    width: min-content;
+    height: min-content;
+    margin: 0;
+    padding-top: 7px;
+}
+.convolist ul li p {
+    margin: 0;
+    text-align: right;
+    width: 100px;
+    white-space: nowrap;
+    padding-top: 33px;
+    text-align: left;
+}
+.contents{
+    height: fit-content;
+    margin-right: 35px;
+    float: left;
+    padding-left: 5px;
+}
+#im {
+    width: 50px;
+    height: 50px;
+    margin-left: 1.3px;
+    margin-bottom: -6px;
+
+}
+
+.sidebar ul {
+    justify-content: center;
+    width: 240px;
+    
+}
+#coim {
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin-top: 2px;
+}
+
+#setting {
+    width: 50px;
+    height: 50px;
+    margin-left: 1.3px;
+    margin-bottom: 4px;
+    margin-top: 6px;
+}
+.convo {
+    background-color: #53525c;
+    flex: 1;
+    width:500vmin;
+    justify-content: center;
+    font-size: 20px;
+    align-items: center;
+    display: flex;
+}
+
+
+.chat {
+    background-color: #0b0b34;
+    background-image: url('./images/background.jpg');
+    background-blend-mode: color-dodge;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 7px;
+    height: fit-content;
+    width:500vmin;
+    font-weight: 1000;
+    font-size: 30px;
+    display: block;
+}
+.convoact {
+    background-color: #19162d;
+    background-image: url('./images/background.jpg');
+    background-blend-mode: color-dodge;
+    flex: 1;
+    width:500vmin;
+    display: flow;
+}
+.messagesend {
+    display: flex;
+}
+.history {
+    height: 86.5vmin;
+    width: 166.3vmin;
+    
+}
+.message {
+    width: 77vmax;
+    height: 12px;
+    border: 1px solid black;
+    
+    padding: 10px;
+    
+    padding-top: 0px;
+    padding-bottom: 16px
+
+}
+
+.you {
+    text-align: right;
+    margin-right: 5px;
+}
+.other {
+    margin-left: 5px;
+}
+.you, .other {
+    font-size: 30px;
+}
+
+
+.settings {
+    background-image: url("../images/setting.png");
+}
+.anno {
+    background-image: url("../images/ann.png");
+}
+.users {
+    background-image: url("../images/user.png");
+}
+.groups {
+    background-image: url("../images/group\ bl.png");
+}
+.channels {
+    background-image: url("../images/channel.png");
+}
+.challenge {
+    background-image: url("../images/challenge.png");
+}
+
+#settingbutimag {
+    
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: 50px;
+    padding: 0px;
+    width: inherit;
+    height: 60px;
+    margin-left: -0.7px;
+    background-position: center;
+    border: 0px solid black;
+    transition: background-color 0.1s;
+    cursor: pointer;
+}
+#settingbutimag:active {
+  background-color: #3d3c44;
+}
+
+.gamelist #bsize {
+	width: 280px;
+	height: 270px;
+	margin: 6px;
+	background-image: url('./images/backimage.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid;
+}
+
+
+@media (max-width: 700px) {
+    .gamelist {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: flex-start; /* Align buttons to the right */
+        flex-direction: column;
+    }
+
+    .bt {
+        width: 100%; /* Optional: Make buttons full width in mobile view */
+    }
+}
+
+.gamelist .checker {
+    background-color: #225479;
+    background-image: url('./images/checkers3.jpeg');
+    width: 280px;
+	height: 270px;
+	margin: 6px;
+    font-size: xx-large;
+    font-weight: 900;
+    background-blend-mode: hard-light;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid;
+}
+.gamelist {
+    display: flex;
+    justify-content: flex-start; /* Align buttons to the right */
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+
+}
+
+#butimag {
+    
+    /* background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: 50px; */
+    padding: 0px;
+    width: inherit;
+    height: 80px;
+    margin-left: -0.7px;
+    background-position: top;
+    /* border: 0px solid black; */
+    transition: background-color 0.1s;
+    cursor: pointer;
+    /* background-image: url('./images/background.jpg'); */
+    background-color: #03052cd9;
+}   
+#butimag:active {
+  background-color: #3d3c44;
+}
+
+#cata {
+    margin: 0;
+    background-color: #0b0b34e6;
+    padding: 15px;
+    font-weight: 1000;
+    color: black;
+}
+
+.cata{
+    color: black;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 3px;
+    font-weight: 1000;
+}
+#tx {
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 3px;
+    
+    
+}
+
+
+.chatconvo {
+    width: 230px;
+    height: 60px;
+    background-image: url("../images/user.png");
+    background-size: 57px;
+    background-repeat: no-repeat;
+    border: 0px solid black;
+    background-color:#302f37;
+    cursor: pointer;
+    background-position-x: 10px;
+
+}
+.chatconvo:active {
+    background-color: #302f37;
+}
+#name {
+    text-align: left;
+    margin: 0px;
+    width: fit-content;
+    margin-left: 70px;
+    margin-bottom: 3px;
+    font-weight: normal;
+}
+#messagen {
+    text-align: left;
+    margin: 0px;
+    margin-left: 70px;
+    width: fit-content;
+    margin-bottom: 7px;
+    color:rgb(159, 152, 165);
+}
+
+.personal {
+    margin-bottom: 3px;
+}
+
+.convo {
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.convotext {
+    text-align: center;
+}
+
+.input_message {
+    width: 340px;
+    height: 20px;
+    margin-left: -10px;
+    padding-bottom: 3px;
+}
+
+
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #0d1343bf;
+    /* margin: 48% auto; */
+
+    margin: 40px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 230px;
+    height: 113px;
+    position: fixed;
+    top: 80px;
+    left: 210px;
+}
+.modal-content p {
+    font-size: 21px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 37px;
+    font-weight: bolder;
+}
+
+.modal-content #bbtns {
+    display: grid;
+    height: 67px;
+    grid-gap: 2px;
+    margin-top: -22px;
+}
+
+.close {
+	color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -18px;
+    margin-right: -12px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
